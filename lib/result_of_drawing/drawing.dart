@@ -10,6 +10,9 @@ class DrawingNow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
+    final args =
+        ModalRoute.of(context)!.settings.arguments as Map<String, String>;
+
     return Scaffold(
       body: Stack(
         children: [
@@ -23,7 +26,12 @@ class DrawingNow extends StatelessWidget {
                   child: Column(
                     children: [
                       CustomPaint(
-                        painter: RPSCustomPainter(),
+                        painter: RPSCustomPainter(
+                          height: double.parse(args['height']!),
+                          waist: double.parse(args['waist']!),
+                          hhip: double.parse(args['highHip']!),
+                          hip: double.parse(args['hip']!),
+                        ),
                       ),
                     ],
                   ),
@@ -54,11 +62,18 @@ class DrawingNow extends StatelessWidget {
 }
 
 class RPSCustomPainter extends CustomPainter {
-  double fac = 5;
-  double height = 60;
-  double waist = 60;
-  double hhip = 20;
-  double hip = 100;
+  final double fac = 5;
+  final double height;
+  final double waist;
+  final double hhip;
+  final double hip;
+
+  RPSCustomPainter({
+    required this.height,
+    required this.waist,
+    required this.hhip,
+    required this.hip,
+  });
 
   @override
   void paint(Canvas canvas, Size size) {

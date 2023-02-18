@@ -44,8 +44,8 @@ class FittedBlouse extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          FieldForSize(size: size, label: "Height"),
-                          FieldForSize(size: size, label: "Head"),
+                          // FieldForSize(size: size, label: "Height"),
+                          // FieldForSize(size: size, label: "Head"),
                         ],
                       ),
                       SizedBox(
@@ -54,8 +54,8 @@ class FittedBlouse extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          FieldForSize(size: size, label: "Neck"),
-                          FieldForSize(size: size, label: "Bust"),
+                          // FieldForSize(size: size, label: "Neck"),
+                          // FieldForSize(size: size, label: "Bust"),
                         ],
                       ),
                       SizedBox(
@@ -64,8 +64,8 @@ class FittedBlouse extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          FieldForSize(size: size, label: "N to shoulder"),
-                          FieldForSize(size: size, label: "Waist"),
+                          // FieldForSize(size: size, label: "N to shoulder"),
+                          // FieldForSize(size: size, label: "Waist"),
                         ],
                       ),
                       SizedBox(
@@ -74,8 +74,8 @@ class FittedBlouse extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          FieldForSize(size: size, label: "High hip"),
-                          FieldForSize(size: size, label: "Hip"),
+                          // FieldForSize(size: size, label: "High hip"),
+                          // FieldForSize(size: size, label: "Hip"),
                         ],
                       ),
                       SizedBox(
@@ -84,8 +84,8 @@ class FittedBlouse extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          FieldForSize(size: size, label: "Shoulder width"),
-                          FieldForSize(size: size, label: "Neck to waist"),
+                          // FieldForSize(size: size, label: "Shoulder width"),
+                          // FieldForSize(size: size, label: "Neck to waist"),
                         ],
                       ),
                       SizedBox(
@@ -94,10 +94,10 @@ class FittedBlouse extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          FieldForSize(
-                              size: size, label: "Waist to crotch line"),
-                          FieldForSize(
-                              size: size, label: "Under bust to waist"),
+                          // FieldForSize(
+                          //     size: size, label: "Waist to crotch line"),
+                          // FieldForSize(
+                          //     size: size, label: "Under bust to waist"),
                         ],
                       ),
                       SizedBox(
@@ -106,8 +106,8 @@ class FittedBlouse extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          FieldForSize(size: size, label: "Neck to shoulder"),
-                          FieldForSize(size: size, label: "N to N"),
+                          // FieldForSize(size: size, label: "Neck to shoulder"),
+                          // FieldForSize(size: size, label: "N to N"),
                         ],
                       ),
                       SizedBox(
@@ -116,8 +116,8 @@ class FittedBlouse extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          FieldForSize(size: size, label: "Upper Bust"),
-                          FieldForSize(size: size, label: "Upper Brust"),
+                          // FieldForSize(size: size, label: "Upper Bust"),
+                          // FieldForSize(size: size, label: "Upper Brust"),
                         ],
                       ),
                       SizedBox(

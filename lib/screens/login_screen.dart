@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:patronist/screens/sign_up.dart';
 
@@ -38,52 +39,60 @@ class LoginScreen extends StatelessWidget {
                   ),
                   SizedBox(height: size.height / 5),
                   Form(
-                      child: Column(
-                    children: [
-                      TextFormFiled(
-                          label: "Email",
-                          iconShowPass: Icons.email,
-                          keyboard: TextInputType.emailAddress,
-                          iconHidePass: null),
-                      SizedBox(height: size.height / 20),
-                      TextFormFiled(
-                        label: "Password",
-                        iconShowPass: Icons.visibility_outlined,
-                        keyboard: TextInputType.visiblePassword,
-                        iconHidePass: null,
-                        show: true,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
-                        child: Align(
-                          alignment: Alignment.bottomRight,
-                          child: TextButton(
-                            child: const Text(
-                              "Forgot Password?",
-                              style: TextStyle(color: Colors.white),
+                    child: Column(
+                      children: [
+                        TextFormFiled(
+                            label: "Email",
+                            iconShowPass: Icons.email,
+                            keyboard: TextInputType.emailAddress,
+                            iconHidePass: null),
+                        SizedBox(height: size.height / 20),
+                        TextFormFiled(
+                          label: "Password",
+                          iconShowPass: Icons.visibility_outlined,
+                          keyboard: TextInputType.visiblePassword,
+                          iconHidePass: null,
+                          show: true,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
+                          child: Align(
+                            alignment: Alignment.bottomRight,
+                            child: TextButton(
+                              child: const Text(
+                                "Forgot Password?",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                              onPressed: () {
+                                Navigator.pushReplacementNamed(
+                                    context, ForgotPass.routeName);
+                              },
                             ),
-                            onPressed: () {
-                              Navigator.pushReplacementNamed(
-                                  context, ForgotPass.routeName);
-                            },
                           ),
                         ),
-                      ),
-                      SizedBox(height: size.height / 10),
-                      DefaultButton(
+                        SizedBox(height: size.height / 10),
+                        DefaultButton(
                           text: "Login",
-                          onPressedFun: () {
+                          onPressedFun: () async {
+                            // final userCredential = await FirebaseAuth.instance
+                            //     .signInWithEmailAndPassword(
+                            //   email: "test@gmail.com",
+                            //   password: "123456789",
+                            // );
                             Navigator.pushNamed(
                                 context, BottomNavBar.routeName);
-                          }),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text(
-                            "Don't have account?",
-                            style: TextStyle(fontWeight: FontWeight.w500,color: Colors.white),
-                          ),
-                          TextButton(
+                          },
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text(
+                              "Don't have account?",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.white),
+                            ),
+                            TextButton(
                               onPressed: () {
                                 Navigator.pushReplacementNamed(
                                     context, SignUpScreen.routeName);
@@ -94,11 +103,13 @@ class LoginScreen extends StatelessWidget {
                                   color: Colors.black54.withOpacity(0.7),
                                   fontSize: 13,
                                 ),
-                              ))
-                        ],
-                      ),
-                    ],
-                  )),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),

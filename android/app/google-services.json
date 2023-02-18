@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "438327085366",
+    "project_id": "the-patronista",
+    "storage_bucket": "the-patronista.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:438327085366:android:9ef95e27e81662ad780b97",
+        "android_client_info": {
+          "package_name": "com.example.patronist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "438327085366-cjs9the90p2vhpooujsfmsu56avuaaf4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-BFPjQ4E9f_zVz5iotb1rYPyVaL0c4eo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "438327085366-cjs9the90p2vhpooujsfmsu56avuaaf4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

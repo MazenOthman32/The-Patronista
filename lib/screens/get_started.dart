@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../constant/background.dart';
@@ -31,11 +32,14 @@ class StartScreen extends StatelessWidget {
                     )),
               ),
               Center(
-                  child: DefaultButton(
-                      text: "Get Started",
-                      onPressedFun: () {
-                        Navigator.pushNamed(context, LoginScreen.routeName);
-                      }))
+                child: DefaultButton(
+                  text: "Get Started",
+                  onPressedFun: () async {
+                    // await FirebaseAuth.instance.signOut();
+                    Navigator.pushNamed(context, LoginScreen.routeName);
+                  },
+                ),
+              ),
             ],
           ),
         ],

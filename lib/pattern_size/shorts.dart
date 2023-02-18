@@ -44,8 +44,8 @@ class Shorts extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          FieldForSize(size: size, label: "Height"),
-                          FieldForSize(size: size, label: "Waist"),
+                          // FieldForSize(size: size, label: "Height"),
+                          // FieldForSize(size: size, label: "Waist"),
                         ],
                       ),
                       SizedBox(
@@ -54,8 +54,8 @@ class Shorts extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          FieldForSize(size: size, label: "High hip"),
-                          FieldForSize(size: size, label: "Hip"),
+                          // FieldForSize(size: size, label: "High hip"),
+                          // FieldForSize(size: size, label: "Hip"),
                         ],
                       ),
                       SizedBox(
@@ -64,8 +64,8 @@ class Shorts extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          FieldForSize(size: size, label: "Top of thigh"),
-                          FieldForSize(size: size, label: "Inside leg to heel"),
+                          // FieldForSize(size: size, label: "Top of thigh"),
+                          // FieldForSize(size: size, label: "Inside leg to heel"),
                         ],
                       ),
                       SizedBox(
@@ -74,8 +74,8 @@ class Shorts extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          FieldForSize(size: size, label: "Around knee"),
-                          FieldForSize(size: size, label: "Around calf"),
+                          // FieldForSize(size: size, label: "Around knee"),
+                          // FieldForSize(size: size, label: "Around calf"),
                         ],
                       ),
                       SizedBox(
@@ -84,8 +84,8 @@ class Shorts extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          FieldForSize(size: size, label: "Around Ankle"),
-                          FieldForSize(size: size, label: "Foot width"),
+                          // FieldForSize(size: size, label: "Around Ankle"),
+                          // FieldForSize(size: size, label: "Foot width"),
                         ],
                       ),
                       SizedBox(
@@ -94,10 +94,10 @@ class Shorts extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          FieldForSize(
-                              size: size, label: "Front waist to heel"),
-                          FieldForSize(
-                              size: size, label: "Front waist to  below knee"),
+                          // FieldForSize(
+                          //     size: size, label: "Front waist to heel"),
+                          // FieldForSize(
+                          //     size: size, label: "Front waist to  below knee"),
                         ],
                       ),
                       SizedBox(
@@ -106,8 +106,8 @@ class Shorts extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          FieldForSize(
-                              size: size, label: "Waist to crotch line"),
+                          // FieldForSize(
+                          //     size: size, label: "Waist to crotch line"),
                         ],
                       ),
                       SizedBox(

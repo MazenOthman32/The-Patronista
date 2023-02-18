@@ -53,8 +53,8 @@ class BasicSleeve extends StatelessWidget {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  FieldForSize(size: size, label: "Height"),
-                                  FieldForSize(size: size, label: "Waist"),
+                                  // FieldForSize(size: size, label: "Height"),
+                                  // FieldForSize(size: size, label: "Waist"),
                                 ],
                               ),
                               SizedBox(
@@ -64,9 +64,9 @@ class BasicSleeve extends StatelessWidget {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  FieldForSize(size: size, label: "Inside arm"),
-                                  FieldForSize(
-                                      size: size, label: "Around Knuckle"),
+                                  // FieldForSize(size: size, label: "Inside arm"),
+                                  // FieldForSize(
+                                      // size: size, label: "Around Knuckle"),
                                 ],
                               ),
                               SizedBox(

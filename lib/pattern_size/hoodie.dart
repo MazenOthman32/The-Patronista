@@ -54,8 +54,8 @@ class Hoodie extends StatelessWidget {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  FieldForSize(size: size, label: "Head"),
-                                  FieldForSize(size: size, label: "Neck"),
+                                  // FieldForSize(size: size, label: "Head"),
+                                  // FieldForSize(size: size, label: "Neck"),
                                 ],
                               ),
                               SizedBox(
