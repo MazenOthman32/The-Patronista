@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../constant/background.dart';
@@ -24,10 +23,10 @@ class StartScreen extends StatelessWidget {
               const Padding(
                 padding: EdgeInsets.all(15.0),
                 child: Align(
-                    alignment: Alignment.topLeft,
+                    alignment: Alignment.center,
                     child: MainText(
                       fontSize: 30,
-                      text: "Welcome to \nPatronest Designer",
+                      text: "Welcome to \nPatronist Designer",
                       color: Colors.white,
                     )),
               ),

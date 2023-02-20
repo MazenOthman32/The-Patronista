@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:patronist/pattern_size/basic_skirt.dart';
@@ -6,25 +5,24 @@ import 'package:patronist/pattern_size/basic_sleeve.dart';
 import 'package:patronist/pattern_size/basic_trouser.dart';
 import 'package:patronist/pattern_size/basic_blouse.dart';
 import 'package:patronist/result_of_drawing/drawing.dart';
-import 'package:patronist/pattern_size/fiited_bluse.dart';
+import 'package:patronist/pattern_size/fited_bluse.dart';
 import 'package:patronist/pattern_size/hoodie.dart';
 import 'package:patronist/pattern_size/puffed_sleeve.dart';
 import 'package:patronist/pattern_size/shorts.dart';
 import 'package:patronist/result_of_drawing/result.dart';
-import 'package:patronist/screens/about_screen.dart';
-import 'package:patronist/screens/customers.dart';
-import 'package:patronist/screens/details_screen.dart';
-import 'package:patronist/screens/forgot_password.dart';
-import 'package:patronist/screens/get_started.dart';
-import 'package:patronist/screens/home_screen.dart';
-import 'package:patronist/screens/invite_screen.dart';
-import 'package:patronist/screens/login_screen.dart';
-import 'package:patronist/screens/new_customer.dart';
-import 'package:patronist/screens/persons_data.dart';
-import 'package:patronist/screens/saved_size.dart';
-import 'package:patronist/screens/settings_screen.dart';
-import 'package:patronist/screens/sign_up.dart';
-
+import 'package:patronist/views/about_screen.dart';
+import 'package:patronist/views/customers.dart';
+import 'package:patronist/views/details_screen.dart';
+import 'package:patronist/views/forgot_password.dart';
+import 'package:patronist/views/get_started.dart';
+import 'package:patronist/views/home_screen.dart';
+import 'package:patronist/views/invite_screen.dart';
+import 'package:patronist/views/login_screen.dart';
+import 'package:patronist/views/new_customer.dart';
+import 'package:patronist/views/persons_data.dart';
+import 'package:patronist/views/saved_size.dart';
+import 'package:patronist/views/settings_screen.dart';
+import 'package:patronist/views/sign_up.dart';
 import 'bottom_nav_bar.dart';
 import 'firebase_options.dart';
 
@@ -45,30 +43,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
-
-    
-    return StreamBuilder<User?>(
-      stream: FirebaseAuth.instance.authStateChanges(),
-      builder: (context, snapshot) {
-        print("object");
-        print(snapshot.data);
-
-        Widget? screen;
-          if ( snapshot.data == null) {
-            screen = LoginScreen();
-          } else {
-            screen = StartScreen();
-          }
-
-        return MaterialApp(
+    return  MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
           theme: ThemeData(
             primarySwatch: Colors.green,
           ),
           routes: {
-            '/': (context) => screen!,
+            '/': (context) => const StartScreen(),
             LoginScreen.routeName: (context) => const LoginScreen(),
             SignUpScreen.routeName: (context) => const SignUpScreen(),
             ForgotPass.routeName: (context) => const ForgotPass(),
@@ -87,14 +69,13 @@ class MyApp extends StatelessWidget {
             DrawingNow.routeName: (context) => const DrawingNow(),
             ChooseCustomer.routeName: (context) => const ChooseCustomer(),
             HomeScreen.routeName: (context) => HomeScreen(),
-            NewCustomer.routeName: (context) => NewCustomer(),
+            NewCustomer.routeName: (context) => const NewCustomer(),
             AddNew.routeName: (context) => const AddNew(),
             Invite.routeName: (context) => const Invite(),
             Setting.routeName: (context) => const Setting(),
             Drawing.routeName: (context) => const Drawing(),
           },
         );
-      },
-    );
+      }
   }
-}
+

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:patronist/screens/persons_data.dart';
+import 'package:patronist/views/persons_data.dart';
 
 import '../constant/background.dart';
 import '../constant/buttons.dart';

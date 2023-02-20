@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:patronist/screens/saved_size.dart';
+import 'package:patronist/views/saved_size.dart';
 
 import '../constant/background.dart';
 import '../constant/buttons.dart';

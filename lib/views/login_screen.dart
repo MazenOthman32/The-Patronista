@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:patronist/screens/sign_up.dart';
+import 'package:patronist/views/sign_up.dart';
 
 import '../bottom_nav_bar.dart';
 import '../constant/background.dart';

@@ -6,7 +6,7 @@ import '../pattern_size/basic_skirt.dart';
 import '../pattern_size/basic_sleeve.dart';
 import '../pattern_size/basic_trouser.dart';
 import '../pattern_size/basic_blouse.dart';
-import '../pattern_size/fiited_bluse.dart';
+import '../pattern_size/fited_bluse.dart';
 import '../pattern_size/hoodie.dart';
 import '../pattern_size/puffed_sleeve.dart';
 import '../pattern_size/shorts.dart';

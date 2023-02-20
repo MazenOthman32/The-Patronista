@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../screens/details_screen.dart';
+import '../views/details_screen.dart';
 
 class ListTiles extends StatelessWidget {
   final String name;

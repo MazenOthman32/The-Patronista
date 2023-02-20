@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../constant/background.dart';
 import '../constant/buttons.dart';
-import '../constant/filed_for_size.dart';
 import '../result_of_drawing/drawing.dart';
 
 class FittedBlouse extends StatelessWidget {
@@ -33,7 +32,10 @@ class FittedBlouse extends StatelessWidget {
                       const Text(
                         "Fitted Blouse",
                         style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.w500,color: Colors.white,),
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.white,
+                        ),
                       ),
                     ],
                   ),

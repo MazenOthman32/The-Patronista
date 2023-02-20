@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:patronist/screens/customers.dart';
-import 'package:patronist/screens/settings_screen.dart';
+import 'package:patronist/views/customers.dart';
+import 'package:patronist/views/settings_screen.dart';
 
-import 'screens/home_screen.dart';
+import 'views/home_screen.dart';
 
 class BottomNavBar extends StatefulWidget {
   static const routeName = 'Bottom screen';

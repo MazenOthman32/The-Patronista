@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../constant/background.dart';
 import '../constant/buttons.dart';
-import '../constant/filed_for_size.dart';
 import '../result_of_drawing/drawing.dart';
 
 class BasicBlouse extends StatelessWidget {

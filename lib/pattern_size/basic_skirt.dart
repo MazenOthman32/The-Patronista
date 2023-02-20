@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../constant/background.dart';
 import '../constant/buttons.dart';
 import '../constant/filed_for_size.dart';
+import '../models/baisc_skirt_model.dart';
 import '../result_of_drawing/drawing.dart';
 
 class BasicSkirt extends StatelessWidget {
@@ -98,15 +99,19 @@ class BasicSkirt extends StatelessWidget {
                               onPressedFun: () {
                                 if (formKey.currentState!.validate()) {
                                   Navigator.pushNamed(
-                                    context,
-                                    DrawingNow.routeName,
-                                    arguments: {
-                                      'height': height.text,
-                                      'waist': waist.text,
-                                      'highHip': highHip.text,
-                                      'hip': hip.text,
-                                    },
-                                  );
+                                      context, DrawingNow.routeName,
+                                      arguments: BasicSkirtModel.fromJson(
+                                          height.text,
+                                          waist.text,
+                                          hip.text,
+                                          highHip.text)
+
+                                      // 'height': height.text,
+                                      // 'waist': waist.text,
+                                      // 'highHip': highHip.text,
+                                      // 'hip': hip.text,
+
+                                      );
                                 }
                                 // Navigator.pushNamed(
                                 //     context, DrawingNow.routeName);
