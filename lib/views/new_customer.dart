@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import '../constant/background.dart';
@@ -41,8 +42,9 @@ class NewCustomer extends StatelessWidget {
                             const Text(
                               "Patronist",
                               style: TextStyle(
-                                color: Colors.white,
-                                  fontSize: 20, fontWeight: FontWeight.w500),
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w500),
                             ),
                           ],
                         ),
@@ -64,24 +66,17 @@ class NewCustomer extends StatelessWidget {
                           iconShowPass: Icons.phone_android,
                           keyboard: TextInputType.phone,
                           iconHidePass: null),
-                      SizedBox(height: size.height / 20),
-                      TextFormFiled(
-                          label: "Body Shape",
-                          iconShowPass: Icons.person_outline_outlined,
-                          show: false,
-                          keyboard: TextInputType.visiblePassword,
-                          iconHidePass: null),
-                      SizedBox(height: size.height / 20),
-                      TextFormFiled(
-                          label: "Order Date",
-                          iconShowPass: Icons.date_range,
-                          show: false,
-                          keyboard: TextInputType.datetime,
-                          iconHidePass: null),
                       SizedBox(height: size.height / 6),
                       DefaultButton(
                           text: "Choose Pattern",
                           onPressedFun: () {
+                            FirebaseFirestore.instance
+                                .collection('customers')
+                                .doc('test')
+                                .set({
+                              'name': 'test1',
+                              'phone': 'test2',
+                            });
                             Navigator.pushNamed(context, AddNew.routeName);
                           }),
                     ],
