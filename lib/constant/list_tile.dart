@@ -5,13 +5,13 @@ import '../views/details_screen.dart';
 class ListTiles extends StatelessWidget {
   final String name;
   final String image;
-  final int numbers;
+  final String code;
 
   const ListTiles({
     Key? key,
     required this.name,
     required this.image,
-    required this.numbers,
+    required this.code,
   }) : super(key: key);
 
   @override
@@ -33,12 +33,20 @@ class ListTiles extends StatelessWidget {
                   ),
                   fit: BoxFit.cover)),
         ),
-        trailing: const Icon(Icons.arrow_forward_ios ,color: Colors.white, size: 17,),
+        trailing: const Icon(
+          Icons.arrow_forward_ios,
+          color: Colors.white,
+          size: 17,
+        ),
         title: Text(
           name,
-          style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 15 ,color: Colors.white),
+          style: const TextStyle(
+              fontWeight: FontWeight.w700, fontSize: 15, color: Colors.white),
         ),
-        subtitle: Text("pattern : $numbers" ,style: TextStyle(color: Colors.white.withOpacity(0.7)),),
+        subtitle: Text(
+          code,
+          style: TextStyle(color: Colors.white.withOpacity(0.7)),
+        ),
       ),
     );
   }

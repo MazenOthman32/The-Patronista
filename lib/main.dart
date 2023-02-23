@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:patronist/cubit/cusomer/customer_cubit.dart';
 
 import 'package:patronist/cubit/sign_up_cubit/sign_up_cubit.dart';
 import 'package:patronist/pattern_size/basic_blouse.dart';
@@ -52,6 +53,9 @@ class MyApp extends StatelessWidget {
         BlocProvider<LogInCubit>(
           create: (context) => LogInCubit(),
         ),
+        BlocProvider<CustomerCubit>(
+          create: (context) => CustomerCubit(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -63,7 +67,7 @@ class MyApp extends StatelessWidget {
           '/': (context) => const StartScreen(),
           LoginScreen.routeName: (context) => LoginScreen(),
           SignUpScreen.routeName: (context) => SignUpScreen(),
-          ForgotPass.routeName: (context) => const ForgotPass(),
+          ForgotPass.routeName: (context) => ForgotPass(),
           AboutScreen.routeName: (context) => const AboutScreen(),
           BottomNavBar.routeName: (context) => const BottomNavBar(),
           BasicBlouse.routeName: (context) => const BasicBlouse(),
@@ -79,7 +83,7 @@ class MyApp extends StatelessWidget {
           DrawingNow.routeName: (context) => const DrawingNow(),
           ChooseCustomer.routeName: (context) => const ChooseCustomer(),
           HomeScreen.routeName: (context) => HomeScreen(),
-          NewCustomer.routeName: (context) => const NewCustomer(),
+          NewCustomer.routeName: (context) => NewCustomer(),
           AddNew.routeName: (context) => const AddNew(),
           Invite.routeName: (context) => const Invite(),
           Setting.routeName: (context) => const Setting(),

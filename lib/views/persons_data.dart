@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:patronist/constant/current_user.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import '../constant/background.dart';
 import '../constant/buttons.dart';
 import '../constant/list_tile.dart';
@@ -16,9 +17,12 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   //static const IconData ic = IconData(0xf064c);
+
+  TextEditingController searchController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
+    print(CurrentUser.get()!.id);
 
     return Scaffold(
       body: Stack(
@@ -47,15 +51,22 @@ class _HomeScreenState extends State<HomeScreen> {
                             const Text(
                               "Patronist",
                               style: TextStyle(
-                                  fontWeight: FontWeight.w500, fontSize: 20 ,color:  Colors.white),
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 20,
+                                  color: Colors.white),
                             ),
                           ],
                         ),
                         Container(
                           height: 40,
                           width: 40,
-                          child: IconButton(icon: Image.asset("assets/about.png") , onPressed:(){ Navigator.pushNamed(
-                              context, AboutScreen.routeName);} ,),
+                          child: IconButton(
+                            icon: Image.asset("assets/about.png"),
+                            onPressed: () {
+                              Navigator.pushNamed(
+                                  context, AboutScreen.routeName);
+                            },
+                          ),
                         )
                       ],
                     ),
@@ -64,63 +75,37 @@ class _HomeScreenState extends State<HomeScreen> {
                   SizedBox(
                       height: 45,
                       child: TextFormFiled(
+                          controller: searchController,
                           label: "Search",
                           iconShowPass: Icons.search,
                           keyboard: TextInputType.text,
                           iconHidePass: null)),
                   const SizedBox(height: 30),
-                  const ListTiles(
-                      numbers: 8,
-                      name: 'Julia Liam ',
-                      image: "assets/persons/pertwo.png"),
-                  const ListTiles(
-                      numbers: 2,
-                      name: 'Klara James',
-                      image: "assets/persons/images.png"),
-                  const ListTiles(
-                      numbers: 4,
-                      name: 'Olivia Locus',
-                      image: "assets/persons/pertwo.png"),
-                  const ListTiles(
-                      numbers: 8,
-                      name: 'Emma Henry ',
-                      image: "assets/persons/perfive.png"),
-                  const ListTiles(
-                      numbers: 5,
-                      name: 'Mia Benjamin',
-                      image: "assets/persons/perfour.png"),
-                  const ListTiles(
-                      numbers: 3,
-                      name: 'Raya Ozzy',
-                      image: "assets/persons/pernine.png"),
-                  const ListTiles(
-                      numbers: 5,
-                      name: 'Flora Mac',
-                      image: "assets/persons/perone.png"),
-                  const ListTiles(
-                      numbers: 4,
-                      name: 'Vida Gian',
-                      image: "assets/persons/perseven.png"),
-                  const ListTiles(
-                      numbers: 9,
-                      name: 'Elia Evander',
-                      image: "assets/persons/persix.png"),
-                  const ListTiles(
-                      numbers: 8,
-                      name: 'Julia Liam ',
-                      image: "assets/persons/perten.png"),
-                  const ListTiles(
-                      numbers: 2,
-                      name: 'Klara James',
-                      image: "assets/persons/perthree.png"),
-                  const ListTiles(
-                      numbers: 4,
-                      name: 'Olivia Locus',
-                      image: "assets/persons/pertwo.png"),
-                  const ListTiles(
-                      numbers: 8,
-                      name: 'Emma Henry ',
-                      image: "assets/persons/pertwo.png"),
+                  FutureBuilder(
+                    future: FirebaseFirestore.instance
+                        .collection('users')
+                        .doc(CurrentUser.get()!.id)
+                        .collection('customer')
+                        .get(),
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return const Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      }
+                      return ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: snapshot.data?.docs.length,
+                        itemBuilder: (context, index) {
+                          return ListTiles(
+                            code: snapshot.data?.docs[index]['code'],
+                            name: snapshot.data?.docs[index]['name'],
+                            image: "assets/persons/pertwo.png",
+                          );
+                        },
+                      );
+                    },
+                  ),
                 ],
               ),
             ),

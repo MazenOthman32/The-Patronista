@@ -52,79 +52,68 @@ class BasicSkirt extends StatelessWidget {
                     ),
                     const SizedBox(height: 100),
                     Form(
-                        key: formKey,
-                        child: Column(
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                FieldForSize(
-                                  size: size,
-                                  label: "Height",
-                                  controller: height,
-                                ),
-                                FieldForSize(
-                                  size: size,
-                                  label: "Waist",
-                                  controller: waist,
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: size.height / 20,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                FieldForSize(
-                                  size: size,
-                                  label: "High hip",
-                                  controller: highHip,
-                                ),
-                                FieldForSize(
-                                  size: size,
-                                  label: "Hip",
-                                  controller: hip,
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: size.height / 20,
-                            ),
-                            SizedBox(
-                              height: size.height / 4,
-                            ),
-                            DefaultButton(
-                              text: "Draw Pattern",
-                              onPressedFun: () {
-                                if (formKey.currentState!.validate()) {
-                                  Navigator.pushNamed(
-                                      context, DrawingNow.routeName,
-                                      arguments: BasicSkirtModel.fromJson(
-                                          height.text,
-                                          waist.text,
-                                          hip.text,
-                                          highHip.text)
-
-                                      // 'height': height.text,
-                                      // 'waist': waist.text,
-                                      // 'highHip': highHip.text,
-                                      // 'hip': hip.text,
-
-                                      );
-                                }
-                                // Navigator.pushNamed(
-                                //     context, DrawingNow.routeName);
-                              },
-                            ),
-                            DefaultButton(
-                                text: "Add to Customer",
-                                onPressedFun: () {
-                                  Navigator.pushNamed(
-                                      context, DrawingNow.routeName);
-                                }),
-                          ],
-                        ))
+                      key: formKey,
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              FieldForSize(
+                                size: size,
+                                label: "Height",
+                                controller: height,
+                              ),
+                              FieldForSize(
+                                size: size,
+                                label: "Waist",
+                                controller: waist,
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: size.height / 20,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              FieldForSize(
+                                size: size,
+                                label: "High hip",
+                                controller: highHip,
+                              ),
+                              FieldForSize(
+                                size: size,
+                                label: "Hip",
+                                controller: hip,
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: size.height / 20,
+                          ),
+                          SizedBox(
+                            height: size.height / 4,
+                          ),
+                          DefaultButton(
+                            text: "Draw Pattern",
+                            onPressedFun: () {
+                              if (formKey.currentState!.validate()) {
+                                Navigator.pushNamed(
+                                  context,
+                                  DrawingNow.routeName,
+                                  arguments: BasicSkirtModel.fromJson(
+                                    height.text,
+                                    waist.text,
+                                    hip.text,
+                                    highHip.text,
+                                  ),
+                                );
+                              }
+                            },
+                          ),
+                        ],
+                      ),
+                    )
                   ],
                 ),
               ),

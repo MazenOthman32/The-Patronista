@@ -13,16 +13,18 @@ class UserModel {
     required this.id,
   });
   UserModel.fromJson(Map<String, dynamic> json) {
-    if (json == null) {
-      return;
-    }
-    firstName = json['firstName'];
-    lastName = json['lastName'];
-    email = json['email'];
-    phoneNumber = json['phoneNumber'];
+    UserModel(
+      id: json['id'],
+      firstName: json['firstName'],
+      lastName: json['lastName'],
+      email: json['email'],
+      phoneNumber: json['phoneNumber'],
+    );
   }
-  tojason(){
+
+  tojson() {
     return {
+      'id': id,
       'firstName': firstName,
       'lastName': lastName,
       'email': email,

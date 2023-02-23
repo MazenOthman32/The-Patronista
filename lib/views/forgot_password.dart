@@ -7,7 +7,9 @@ import 'login_screen.dart';
 
 class ForgotPass extends StatelessWidget {
   static const routeName = 'ForgotPassScreen';
-  const ForgotPass({Key? key}) : super(key: key);
+   ForgotPass({Key? key}) : super(key: key);
+
+  TextEditingController emailController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -52,6 +54,7 @@ class ForgotPass extends StatelessWidget {
                       Container(
                           height: 50,
                           child: TextFormFiled(
+                              controller: emailController,
                               label: "Enter email",
                               iconShowPass: Icons.email_outlined,
                               keyboard: TextInputType.emailAddress,

@@ -1,34 +1,41 @@
 {
   "project_info": {
-    "project_number": "604395501713",
-    "project_id": "patronista-dae18",
-    "storage_bucket": "patronista-dae18.appspot.com"
+    "project_number": "438327085366",
+    "project_id": "the-patronista",
+    "storage_bucket": "the-patronista.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:604395501713:android:96faed6ac23906daefa730",
+        "mobilesdk_app_id": "1:438327085366:android:9ef95e27e81662ad780b97",
         "android_client_info": {
           "package_name": "com.example.patronist"
         }
       },
       "oauth_client": [
         {
-          "client_id": "604395501713-hh411v8nesfl3vgdhblndeuahdlr5iqh.apps.googleusercontent.com",
+          "client_id": "438327085366-cjs9the90p2vhpooujsfmsu56avuaaf4.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC3kXm9SnJ1xSBXMG-KVo00UydS4IGJ1Lc"
+          "current_key": "AIzaSyD-BFPjQ4E9f_zVz5iotb1rYPyVaL0c4eo"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "604395501713-hh411v8nesfl3vgdhblndeuahdlr5iqh.apps.googleusercontent.com",
+              "client_id": "438327085366-cjs9the90p2vhpooujsfmsu56avuaaf4.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "438327085366-544lsp8e00ttkjv5tn4sfc4ok69v6d87.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.patronist"
+              }
             }
           ]
         }

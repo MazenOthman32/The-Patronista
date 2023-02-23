@@ -16,8 +16,8 @@ class LoginScreen extends StatelessWidget {
   static const routeName = 'loginScreen';
 
   bool isLoading = false;
-  String? email;
-  String? password;
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey();
 
   LoginScreen({super.key});
@@ -66,20 +66,28 @@ class LoginScreen extends StatelessWidget {
                         ),
                         SizedBox(height: size.height / 5),
                         Form(
+                          key: formKey,
                           child: Column(
                             children: [
                               TextFormFiled(
-                                  onChanged: (data) {
-                                    email = data;
-                                  },
-                                  label: "Email",
-                                  iconShowPass: Icons.email,
-                                  keyboard: TextInputType.emailAddress,
-                                  iconHidePass: null),
+                                controller: emailController,
+                                validator: (data) {
+                                  if (data!.isEmpty) {
+                                    return "Please enter your email";
+                                  }
+                                },
+                                label: "Email",
+                                iconShowPass: Icons.email,
+                                keyboard: TextInputType.emailAddress,
+                                iconHidePass: null,
+                              ),
                               SizedBox(height: size.height / 20),
                               TextFormFiled(
-                                onChanged: (data) {
-                                  password = data;
+                                controller: passwordController,
+                                validator: (data) {
+                                  if (data!.isEmpty) {
+                                    return "Please enter your password";
+                                  }
                                 },
                                 label: "Password",
                                 iconShowPass: Icons.visibility_outlined,
@@ -97,14 +105,7 @@ class LoginScreen extends StatelessWidget {
                                       "Forgot Password?",
                                       style: TextStyle(color: Colors.white),
                                     ),
-                                    onPressed: () {
-                                      if (formKey.currentState!.validate()) {
-                                        BlocProvider.of<LogInCubit>(context)
-                                            .loginUser(
-                                                email: email!,
-                                                password: password!);
-                                      }
-                                    },
+                                    onPressed: () {},
                                   ),
                                 ),
                               ),
@@ -112,13 +113,13 @@ class LoginScreen extends StatelessWidget {
                               DefaultButton(
                                 text: "Login",
                                 onPressedFun: () async {
-                                  // final userCredential = await FirebaseAuth.instance
-                                  //     .signInWithEmailAndPassword(
-                                  //   email: "test@gmail.com",
-                                  //   password: "123456789",
-                                  // );
-                                  Navigator.pushNamed(
-                                      context, BottomNavBar.routeName);
+                                  if (formKey.currentState!.validate()) {
+                                    BlocProvider.of<LogInCubit>(context)
+                                        .loginUser(
+                                      email: emailController.text,
+                                      password: passwordController.text,
+                                    );
+                                  }
                                 },
                               ),
                               Row(

@@ -7,7 +7,7 @@ class FireStoreUser {
       FirebaseFirestore.instance.collection('users');
   Future<void> addUser(UserModel user) async {
     return await _userCollection.doc(user.id).set(
-          user.tojason(),
+          user.tojson(),
         );
   }
 }

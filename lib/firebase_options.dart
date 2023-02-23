@@ -44,40 +44,40 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAwgxKKwFfxdHFiMepj7MHYvNMbk9c1AK8',
-    appId: '1:604395501713:web:5ba9e2ad1923dcd3efa730',
-    messagingSenderId: '604395501713',
-    projectId: 'patronista-dae18',
-    authDomain: 'patronista-dae18.firebaseapp.com',
-    storageBucket: 'patronista-dae18.appspot.com',
-    measurementId: 'G-J5J700K5PB',
+    apiKey: 'AIzaSyDF1aFIaPb3xuUSRcKIHIda7tvEyUHshyQ',
+    appId: '1:438327085366:web:1238ca7cd9a79062780b97',
+    messagingSenderId: '438327085366',
+    projectId: 'the-patronista',
+    authDomain: 'the-patronista.firebaseapp.com',
+    storageBucket: 'the-patronista.appspot.com',
+    measurementId: 'G-Q8W53B310Z',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyC3kXm9SnJ1xSBXMG-KVo00UydS4IGJ1Lc',
-    appId: '1:604395501713:android:96faed6ac23906daefa730',
-    messagingSenderId: '604395501713',
-    projectId: 'patronista-dae18',
-    storageBucket: 'patronista-dae18.appspot.com',
+    apiKey: 'AIzaSyD-BFPjQ4E9f_zVz5iotb1rYPyVaL0c4eo',
+    appId: '1:438327085366:android:9ef95e27e81662ad780b97',
+    messagingSenderId: '438327085366',
+    projectId: 'the-patronista',
+    storageBucket: 'the-patronista.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyA6Ne_7djko7N16OuFINJsI4orPtTkY0PU',
-    appId: '1:604395501713:ios:6054bca8d8df8282efa730',
-    messagingSenderId: '604395501713',
-    projectId: 'patronista-dae18',
-    storageBucket: 'patronista-dae18.appspot.com',
-    iosClientId: '604395501713-j8djc7ipfjok70mq9lrpt2i966rub3j1.apps.googleusercontent.com',
+    apiKey: 'AIzaSyDZ7ncU97x13DGluA7PRQTUgQJ-7NN7Fy4',
+    appId: '1:438327085366:ios:862e7da662571cca780b97',
+    messagingSenderId: '438327085366',
+    projectId: 'the-patronista',
+    storageBucket: 'the-patronista.appspot.com',
+    iosClientId: '438327085366-544lsp8e00ttkjv5tn4sfc4ok69v6d87.apps.googleusercontent.com',
     iosBundleId: 'com.example.patronist',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyA6Ne_7djko7N16OuFINJsI4orPtTkY0PU',
-    appId: '1:604395501713:ios:6054bca8d8df8282efa730',
-    messagingSenderId: '604395501713',
-    projectId: 'patronista-dae18',
-    storageBucket: 'patronista-dae18.appspot.com',
-    iosClientId: '604395501713-j8djc7ipfjok70mq9lrpt2i966rub3j1.apps.googleusercontent.com',
+    apiKey: 'AIzaSyDZ7ncU97x13DGluA7PRQTUgQJ-7NN7Fy4',
+    appId: '1:438327085366:ios:862e7da662571cca780b97',
+    messagingSenderId: '438327085366',
+    projectId: 'the-patronista',
+    storageBucket: 'the-patronista.appspot.com',
+    iosClientId: '438327085366-544lsp8e00ttkjv5tn4sfc4ok69v6d87.apps.googleusercontent.com',
     iosBundleId: 'com.example.patronist',
   );
 }

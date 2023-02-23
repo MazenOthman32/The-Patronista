@@ -5,17 +5,20 @@ class TextFormFiled extends StatelessWidget {
   final IconData? iconShowPass;
   final IconData? iconHidePass;
   final TextInputType keyboard;
-  Function(String)? onChanged;
+  final TextEditingController controller;
+  String? Function(String?)? validator;
   bool? show;
 
-  TextFormFiled(
-      {super.key,
-      required this.label,
-      required this.iconShowPass,
-      required this.iconHidePass,
-      required this.keyboard,
-      this.onChanged,
-      this.show});
+  TextFormFiled({
+    super.key,
+    required this.label,
+    required this.iconShowPass,
+    required this.iconHidePass,
+    required this.keyboard,
+    required this.controller,
+    this.validator,
+    this.show,
+  });
 
   var visabel = false;
 
@@ -27,13 +30,8 @@ class TextFormFiled extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: TextFormField(
-        validator: (data) {
-          if (data!.isEmpty) {
-            return 'Felid iS Required';
-          }
-          return null;
-        },
-        onChanged: onChanged,
+        validator: validator,
+        controller: controller,
         obscuringCharacter: "*",
         obscureText: show ??= false,
         cursorColor: w,

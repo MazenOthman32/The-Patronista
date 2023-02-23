@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:patronist/models/baisc_skirt_model.dart';
+import 'package:patronist/views/persons_data.dart';
 import '../constant/background.dart';
 import '../constant/buttons.dart';
 
@@ -52,7 +53,12 @@ class DrawingNow extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     DefaultButton(text: "Save to Device", onPressedFun: () {}),
-                    DefaultButton(text: "Add To Customer", onPressedFun: () {}),
+                    DefaultButton(
+                      text: "Add to Customer",
+                      onPressedFun: () {
+                        Navigator.pushNamed(context, HomeScreen.routeName);
+                      },
+                    ),
                   ],
                 ),
               ),

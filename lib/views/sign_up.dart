@@ -13,12 +13,12 @@ import 'login_screen.dart';
 // ignore: must_be_immutable
 class SignUpScreen extends StatelessWidget {
   static const routeName = 'sign up Screen';
-  String? email;
-  String? firstName;
-  String? lastName;
-  String? phoneNumber;
-  String? password;
-  String? confirmPassword;
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController fristController = TextEditingController();
+  TextEditingController lastController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
   bool isLoading = false;
   GlobalKey<FormState> formKey = GlobalKey();
 
@@ -50,7 +50,7 @@ class SignUpScreen extends StatelessWidget {
             body: Stack(
               children: [
                 MainPage(size: size),
-                Container(
+                SizedBox(
                   width: size.width,
                   child: SingleChildScrollView(
                     child: Column(
@@ -71,8 +71,11 @@ class SignUpScreen extends StatelessWidget {
                             child: Column(
                           children: [
                             TextFormFiled(
-                                onChanged: (data) {
-                                  firstName = data;
+                                controller: fristController,
+                                validator: (data) {
+                                  if (data!.isEmpty) {
+                                    return "Please Enter Your First Name";
+                                  }
                                 },
                                 label: "First Name",
                                 iconShowPass: Icons.person_outline_outlined,
@@ -80,8 +83,11 @@ class SignUpScreen extends StatelessWidget {
                                 iconHidePass: null),
                             SizedBox(height: size.height / 20),
                             TextFormFiled(
-                                onChanged: (data) {
-                                  lastName = data;
+                                controller: lastController,
+                                validator: (data) {
+                                  if (data!.isEmpty) {
+                                    return "Please Enter Your Last Name";
+                                  }
                                 },
                                 label: "Last Name",
                                 iconShowPass: Icons.person_outline_outlined,
@@ -89,8 +95,11 @@ class SignUpScreen extends StatelessWidget {
                                 iconHidePass: null),
                             SizedBox(height: size.height / 20),
                             TextFormFiled(
-                                onChanged: (data) {
-                                  email = data;
+                                controller: emailController,
+                                validator: (data) {
+                                  if (data!.isEmpty) {
+                                    return "Please Enter Your Email";
+                                  }
                                 },
                                 label: "Email",
                                 iconShowPass: Icons.email_outlined,
@@ -98,8 +107,11 @@ class SignUpScreen extends StatelessWidget {
                                 iconHidePass: null),
                             SizedBox(height: size.height / 20),
                             TextFormFiled(
-                                onChanged: (data) {
-                                  phoneNumber = data;
+                                controller: phoneController,
+                                validator: (data) {
+                                  if (data!.isEmpty) {
+                                    return "Please Enter Your Phone Number";
+                                  }
                                 },
                                 label: "Phone Number",
                                 iconShowPass: Icons.phone_android,
@@ -107,8 +119,11 @@ class SignUpScreen extends StatelessWidget {
                                 iconHidePass: null),
                             SizedBox(height: size.height / 20),
                             TextFormFiled(
-                                onChanged: (data) {
-                                  password = data;
+                                controller: passwordController,
+                                validator: (data) {
+                                  if (data!.isEmpty) {
+                                    return "Please Enter Your Password";
+                                  }
                                 },
                                 label: "Password",
                                 iconShowPass: Icons.visibility_outlined,
@@ -117,8 +132,13 @@ class SignUpScreen extends StatelessWidget {
                                 iconHidePass: Icons.visibility_off_outlined),
                             SizedBox(height: size.height / 20),
                             TextFormFiled(
-                                onChanged: (data) {
-                                  confirmPassword = data;
+                                controller: confirmPasswordController,
+                                validator: (data) {
+                                  if (data!.isEmpty) {
+                                    return "Please Enter Your Confirm Password";
+                                  } else if (data != passwordController.text) {
+                                    return "Password Not Match";
+                                  }
                                 },
                                 label: "Confirm Password",
                                 iconShowPass: Icons.visibility_outlined,
@@ -127,16 +147,19 @@ class SignUpScreen extends StatelessWidget {
                                 iconHidePass: Icons.visibility_off_outlined),
                             SizedBox(height: size.height / 20),
                             DefaultButton(
-                                text: "Sign Up",
-                                onPressedFun: () {
-                                  BlocProvider.of<SignUpCubit>(context).signUp(
-                                      email: email!,
-                                      password: password!,
-                                      firstName: firstName!,
-                                      lastName: lastName!,
-                                      phoneNumber: phoneNumber!,
-                                      confirmPassword: confirmPassword!);
-                                }),
+                              text: "Sign Up",
+                              onPressedFun: () {
+                                BlocProvider.of<SignUpCubit>(context).signUp(
+                                  email: emailController.text,
+                                  password: passwordController.text,
+                                  firstName: fristController.text,
+                                  lastName: lastController.text,
+                                  phoneNumber: phoneController.text,
+                                  confirmPassword:
+                                      confirmPasswordController.text,
+                                );
+                              },
+                            ),
                             Padding(
                               padding: const EdgeInsets.only(bottom: 10.0),
                               child: Row(
