@@ -27,14 +27,18 @@ class TextFormFiled extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: TextFormField(
-
+        validator: (data) {
+          if (data!.isEmpty) {
+            return 'Felid iS Required';
+          }
+          return null;
+        },
         onChanged: onChanged,
         obscuringCharacter: "*",
         obscureText: show ??= false,
         cursorColor: w,
         keyboardType: keyboard,
         decoration: InputDecoration(
-
           labelText: label,
           focusColor: w,
           labelStyle: TextStyle(color: w),
@@ -55,7 +59,6 @@ class TextFormFiled extends StatelessWidget {
             },
           ),
           enabledBorder: OutlineInputBorder(
-
               borderRadius: BorderRadius.circular(50),
               borderSide: const BorderSide(
                 color: Colors.white,
@@ -65,9 +68,6 @@ class TextFormFiled extends StatelessWidget {
               borderSide: BorderSide(
                 color: w,
               )),
-
-
-
         ),
       ),
     );
