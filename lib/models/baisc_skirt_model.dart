@@ -1,6 +1,7 @@
-import 'dart:ffi';
 
-class BasicSkirtModel {
+import 'package:patronist/models/patterns_model.dart';
+
+class BasicSkirtModel extends PatternsModel {
   final double height;
   final double waist;
   final double hip;
@@ -22,4 +23,17 @@ class BasicSkirtModel {
       highHip: double.parse(highHip),
     );
   }
+  
+  @override
+  Map<String, dynamic> toMap() {
+    return {
+      'height': height,
+      'waist': waist,
+      'hip': hip,
+      'highHip': highHip,
+    };
+  }
+  
+  @override
+  String get name => "Basic_Skirt";
 }

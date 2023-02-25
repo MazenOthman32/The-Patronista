@@ -31,15 +31,17 @@ dependencies:
   
   flutter:
     sdk: flutter
+
   cupertino_icons: ^1.0.2
   curved_navigation_bar: ^1.0.3
   firebase_auth: ^4.2.9
   firebase_core: ^2.7.0
   flutter_bloc: ^8.1.2
-  flutter_launcher_icons: ^0.11.0
+  flutter_launcher_icons: ^0.12.0
   flutter_lints: ^2.0.0
   flutter_staggered_grid_view: ^0.6.2
   modal_progress_hud_nsn: ^0.3.0
+  pdf: ^3.9.0
 
 flutter_icons:
   android: true

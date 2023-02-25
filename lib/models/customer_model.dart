@@ -13,7 +13,7 @@ class CustomerModel {
 
   factory CustomerModel.fromJson(Map<String, dynamic> json) {
     return CustomerModel(
-      code: json['id'],
+      code: json['code'],
       name: json['name'],
       email: json['email'],
       phone: json['phone'],
@@ -22,7 +22,7 @@ class CustomerModel {
 
   Map<String, dynamic> toJson() {
     return {
-      'id': code,
+      'code': code,
       'name': name,
       'email': email,
       'phone': phone,

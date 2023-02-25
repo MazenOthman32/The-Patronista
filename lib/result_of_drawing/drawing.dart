@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:patronist/models/baisc_skirt_model.dart';
 import 'package:patronist/views/persons_data.dart';
+import 'package:pdf/pdf.dart';
+import 'package:pdf/widgets.dart' as pw;
 import '../constant/background.dart';
 import '../constant/buttons.dart';
+import '../cubit/cusomer/customer_cubit.dart';
+import 'drawing.dart';
 
 class DrawingNow extends StatelessWidget {
   static const routeName = 'DrawingNow';
@@ -52,11 +57,36 @@ class DrawingNow extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    DefaultButton(text: "Save to Device", onPressedFun: () {}),
+                    DefaultButton(
+                      text: "Save to Device",
+                      onPressedFun: () {
+                        final pdf = pw.Document();
+
+                        // pdf.addPage(
+                        //   pw.Page(
+                        //     pageFormat: PdfPageFormat.a4,
+                        //     build: (pw.Context context) {
+                        //       return pw.CustomPaint(
+                        //         painter: pw.RPSCustomPainter(
+                        //           height: args.height,
+                        //           waist: args.waist,
+                        //           highHip: args.highHip,
+                        //           hip: args.hip,
+                        //         ),
+                        //       );
+                        //     },
+                        //   ),
+                        // );
+                      },
+                    ),
                     DefaultButton(
                       text: "Add to Customer",
                       onPressedFun: () {
-                        Navigator.pushNamed(context, HomeScreen.routeName);
+                        Navigator.pushNamed(
+                          context,
+                          HomeScreen.routeName,
+                          arguments: args,
+                        );
                       },
                     ),
                   ],

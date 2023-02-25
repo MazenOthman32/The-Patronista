@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:patronist/bottom_nav_bar.dart';
 
 import '../constant/background.dart';
 import '../constant/buttons.dart';
@@ -28,7 +29,7 @@ class NewCustomer extends StatelessWidget {
           isLoading = true;
         } else if (state is AddCustomerSuccess) {
           isLoading = false;
-          Navigator.pushNamed(context, AddNew.routeName);
+          Navigator.pushReplacementNamed(context, BottomNavBar.routeName);
         } else if (state is AddCustomerFailure) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
@@ -115,7 +116,7 @@ class NewCustomer extends StatelessWidget {
                                   iconHidePass: null),
                               SizedBox(height: size.height / 6),
                               DefaultButton(
-                                text: "Choose Pattern",
+                                text: "Add Customer",
                                 onPressedFun: () {
                                   if (formKey.currentState!.validate()) {
                                     BlocProvider.of<CustomerCubit>(context)

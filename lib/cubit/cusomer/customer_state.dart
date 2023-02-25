@@ -11,3 +11,16 @@ class AddCustomerFailure extends CustomerState {
   final String errorMessage;
   AddCustomerFailure({required this.errorMessage});
 }
+
+class AddPatternToCustomerLoading extends CustomerState {}
+
+class AddPatternToCustomerSuccess extends CustomerState {
+  final CustomerModel customer;
+
+  AddPatternToCustomerSuccess({required this.customer});
+}
+
+class AddPatternToCustomerFailure extends CustomerState {
+  final String errorMessage;
+  AddPatternToCustomerFailure({required this.errorMessage});
+}

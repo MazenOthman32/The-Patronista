@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:patronist/constant/current_user.dart';
 import 'package:patronist/views/saved_size.dart';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import '../constant/background.dart';
 import '../constant/buttons.dart';
+import '../models/customer_model.dart';
 
 class Details extends StatelessWidget {
   static const routeName = 'Details';
@@ -11,6 +14,7 @@ class Details extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
+    final arg = ModalRoute.of(context)!.settings.arguments as CustomerModel;
 
     return Scaffold(
       body: Stack(
@@ -29,7 +33,6 @@ class Details extends StatelessWidget {
                 onPressed: () {
                   Navigator.pop(context);
                 },
-
               ),
             ),
           ),
@@ -46,251 +49,150 @@ class Details extends StatelessWidget {
                 width: double.infinity,
                 child: SingleChildScrollView(
                   child: Padding(
-                      padding: const EdgeInsets.only(top: 50.0, bottom: 20),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Container(
-                            height: 65,
-                            width: 65,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30),
-                                image: const DecorationImage(
-                                    image: AssetImage(
-                                      "assets/persons/perfour.png",
+                    padding: const EdgeInsets.only(top: 50.0, bottom: 20),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Container(
+                          height: 65,
+                          width: 65,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            image: const DecorationImage(
+                              image: AssetImage(
+                                "assets/persons/perfour.png",
+                              ),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 15,
+                        ),
+                        Text(
+                          arg.name,
+                          style: const TextStyle(
+                            fontSize: 17,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          arg.email,
+                          style: const TextStyle(
+                            fontSize: 13,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        SizedBox(
+                          height: size.height / 15,
+                        ),
+                        FutureBuilder(
+                          future: FirebaseFirestore.instance
+                              .collection('users')
+                              .doc(CurrentUser.get()!.id)
+                              .collection('customer')
+                              .doc(arg.code)
+                              .collection("patterns")
+                              .get(),
+                          builder: (context, snapshot) {
+                            if (snapshot.connectionState ==
+                                ConnectionState.waiting) {
+                              return const Center(
+                                child: CircularProgressIndicator(),
+                              );
+                            }
+                            return ListView.builder(
+                              shrinkWrap: true,
+                              itemCount: snapshot.data!.docs.length,
+                              itemBuilder: (context, index) {
+                                return Row(
+                                  children: [
+                                    Container(
+                                      height: 50,
+                                      width: 50,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(30),
+                                        image: const DecorationImage(
+                                          image: AssetImage(
+                                            "assets/persons/perfour.png",
+                                          ),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
                                     ),
-                                    fit: BoxFit.cover)),
-                          ),
-                          const SizedBox(
-                            height: 15,
-                          ),
-                          const Text(
-                            "Julia Liam",
-                            style: TextStyle(
-                                fontSize: 17, fontWeight: FontWeight.bold ,color: Colors.white,),
-                          ),
-                          const SizedBox(
-                            height: 5,
-                          ),
-                          const Text(
-                            "Pattern : 8",
-                            style: TextStyle(
-                                fontSize: 13,color: Colors.white, fontWeight: FontWeight.w700),
-                          ),
-                          SizedBox(
-                            height: size.height / 15,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              InkWell(
-                                onTap: () {
-                                  Navigator.pushNamed(
-                                      context, SavedSizes.routeName);
-                                },
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius: BorderRadius.circular(20)),
-                                  height: 130,
-                                  width: 100,
-                                  child: Column(
-                                    children: [
-                                      Container(
-                                        width: 100,
-                                        height: 100,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(20),
-                                            image: const DecorationImage(
-                                                image: AssetImage(
-                                                    "assets/Basic blouse.png"))),
+                                    const SizedBox(
+                                      width: 10,
+                                    ),
+                                    Text(
+                                      snapshot.data!.docs[index].id,
+                                      style: const TextStyle(
+                                        fontSize: 17,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
                                       ),
-                                      const SizedBox(height: 5),
-                                      const Text("Basic blouse",
-                                          style: TextStyle(
-                                              fontSize: 12,
-                                              fontWeight: FontWeight.w700)),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              InkWell(
-                                onTap: () {
-                                  Navigator.pushNamed(
-                                      context, SavedSizes.routeName);
-                                },
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius: BorderRadius.circular(20)),
-                                  height: 130,
-                                  width: 100,
-                                  child: Column(
-                                    children: [
-                                      Container(
-                                        width: 100,
-                                        height: 100,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(20),
-                                            image: const DecorationImage(
-                                                image: AssetImage(
-                                                    "assets/Basic skirt.png"))),
+                                    ),
+                                    const SizedBox(
+                                      width: 10,
+                                    ),
+                                    Text(
+                                      snapshot.data!.docs[index]['height']
+                                          .toString(),
+                                      style: const TextStyle(
+                                        fontSize: 13,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w700,
                                       ),
-                                      const SizedBox(height: 5),
-                                      const Text("Basic skirt",
-                                          style: TextStyle(
-                                              fontSize: 12,
-                                              fontWeight: FontWeight.w700)),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 20),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              InkWell(
-                                onTap: () {
-                                  Navigator.pushNamed(
-                                      context, SavedSizes.routeName);
-                                },
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius: BorderRadius.circular(20)),
-                                  height: 130,
-                                  width: 100,
-                                  child: Column(
-                                    children: [
-                                      Container(
-                                        width: 100,
-                                        height: 100,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(20),
-                                            image: const DecorationImage(
-                                                image: AssetImage(
-                                                    "assets/Basic sleeve.png"))),
+                                    ),
+                                    const SizedBox(
+                                      width: 10,
+                                    ),
+                                    Text(
+                                      snapshot.data!.docs[index]['waist']
+                                          .toString(),
+                                      style: const TextStyle(
+                                        fontSize: 13,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w700,
                                       ),
-                                      const SizedBox(height: 5),
-                                      const Text("Basic sleeve",
-                                          style: TextStyle(
-                                              fontSize: 12,
-                                              fontWeight: FontWeight.w700)),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              InkWell(
-                                onTap: () {
-                                  Navigator.pushNamed(
-                                      context, SavedSizes.routeName);
-                                },
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius: BorderRadius.circular(20)),
-                                  height: 130,
-                                  width: 100,
-                                  child: Column(
-                                    children: [
-                                      Container(
-                                        width: 100,
-                                        height: 100,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(20),
-                                            image: const DecorationImage(
-                                                image: AssetImage(
-                                                    "assets/Hoodie.png"))),
+                                    ),
+                                    const SizedBox(
+                                      width: 10,
+                                    ),
+                                    Text(
+                                      snapshot.data!.docs[index]['highHip']
+                                          .toString(),
+                                      style: const TextStyle(
+                                        fontSize: 13,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w700,
                                       ),
-                                      const SizedBox(height: 5),
-                                      const Text("Hoodie",
-                                          style: TextStyle(
-                                              fontSize: 12,
-                                              fontWeight: FontWeight.w700)),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 20),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              InkWell(
-                                onTap: () {
-                                  Navigator.pushNamed(
-                                      context, SavedSizes.routeName);
-                                },
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius: BorderRadius.circular(20)),
-                                  height: 130,
-                                  width: 100,
-                                  child: Column(
-                                    children: [
-                                      Container(
-                                        width: 100,
-                                        height: 100,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(20),
-                                            image: const DecorationImage(
-                                                image: AssetImage(
-                                                    "assets/Fitted blouse.png"))),
+                                    ),
+                                    const SizedBox(
+                                      width: 10,
+                                    ),
+                                    Text(
+                                      snapshot.data!.docs[index]['hip']
+                                          .toString(),
+                                      style: const TextStyle(
+                                        fontSize: 13,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w700,
                                       ),
-                                      const SizedBox(height: 5),
-                                      const Text("Fitted blouse",
-                                          style: TextStyle(
-                                              fontSize: 12,
-                                              fontWeight: FontWeight.w700)),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              InkWell(
-                                onTap: () {
-                                  Navigator.pushNamed(
-                                      context, SavedSizes.routeName);
-                                },
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius: BorderRadius.circular(20)),
-                                  height: 130,
-                                  width: 100,
-                                  child: Column(
-                                    children: [
-                                      Container(
-                                        width: 100,
-                                        height: 100,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(20),
-                                            image: const DecorationImage(
-                                                image: AssetImage(
-                                                    "assets/Puffed sleeve.png"))),
-                                      ),
-                                      const SizedBox(height: 5),
-                                      const Text("Puffed sleeve",
-                                          style: TextStyle(
-                                              fontSize: 12,
-                                              fontWeight: FontWeight.w700)),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          )
-                        ],
-                      )),
+                                    ),
+                                  ],
+                                );
+                              },
+                            );
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ),
             ),
