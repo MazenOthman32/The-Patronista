@@ -15,3 +15,14 @@ class LogInFailure extends LogInState {
     required this.errorMessage,
   });
 }
+
+class LogOutSuccess extends LogInState {}
+
+class LogOutFailure extends LogInState {
+  final String errorMessage;
+  LogOutFailure({
+    required this.errorMessage,
+  });
+}
+
+class LogOutLoading extends LogInState {}

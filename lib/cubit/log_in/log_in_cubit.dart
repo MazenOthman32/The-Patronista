@@ -18,7 +18,6 @@ class LogInCubit extends Cubit<LogInState> {
   }) async {
     emit(LogInLoading());
     try {
-      await FirebaseAuth.instance.signOut();
       UserCredential user =
           await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: email,
@@ -51,6 +50,18 @@ class LogInCubit extends Cubit<LogInState> {
     } catch (e) {
       emit(
         LogInFailure(errorMessage: 'Something went wrong'),
+      );
+    }
+  }
+
+  void logOut() async {
+    try {
+      emit(LogOutLoading());
+      await FirebaseAuth.instance.signOut();
+      emit(LogOutSuccess());
+    } catch (e) {
+      emit(
+        LogOutFailure(errorMessage: 'Something went wrong'),
       );
     }
   }
