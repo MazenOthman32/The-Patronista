@@ -1,0 +1,335 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@600&family=Jomhuria&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*
+{
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;  /*For scrolling */
+    text-transform: capitalize;
+}
+header
+{
+    background-color: rgb(235,238,243);
+    width: 100%;
+    display: flex;
+    position: fixed;
+    z-index: 999;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 70px;
+    height: 65px;
+}
+.logo img
+{
+    width: 12vh;
+}
+.navigation a
+{
+    color: rgb(76, 76, 76);
+    text-decoration: none;
+    font-size: 1.3em;
+    font-weight: 700;
+    padding-left: 70px;
+}
+.navigation a:hover
+{
+    color: teal;
+    transition: 0.8s;
+}
+section
+{
+    padding: 20px 70px;
+}
+.main
+{
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgb(235,238,243);
+    display: flex;
+    align-items: center;
+}
+.main
+{
+    width: 100%;
+    background-image: url(../Images/Background.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: right;
+    background-size: cover;
+}
+.main h2
+{
+    color: black;
+    font-size: 1.4em;
+    font-weight: 400;
+}
+.main h2 span
+{
+    color: teal;
+    font-size: 3em;
+    font-weight: 500;
+    display: inline-block;
+    margin-top: 6px;
+}
+.main h3
+{
+    color: black;
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-top: 7px;
+    margin-bottom: 30px;
+}
+.main .main-btn
+{
+    color: white;
+    background-color: rgb(76, 76, 76);
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 600;
+    display: inline-block;
+    padding: 0.9375em 2.1075em;
+    border-radius: 30px;
+    margin-bottom: 40px;
+}
+.main .main-btn:hover
+{
+    color: black;
+    background-color: #008080;
+    transition: 1s ease;
+}
+.main .social-icons a
+{
+    color: teal;
+    font-size: 2.5em;
+    padding-right: 40px;
+}
+.title
+{
+    display: flex;
+    justify-content: center;
+    color: teal;
+    font-size: 2.2em;
+    font-weight: 800;
+}
+.content
+{
+    display: flex;
+}
+.content .right
+{
+    width: 53%;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 10vh;
+}
+.content .left
+{
+    width: 47%;
+    background-image: url(../Images/Background\ 2.png);
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: cover;
+}
+.card
+{
+    background-color: #fff;
+    width: 16.25em;
+    box-shadow: 0 5px 25px rgba(1 1 1 /15%);
+    border-radius: 20px;
+    padding: 25px;
+    margin: 15px;
+}
+.card:hover
+{
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+.card .icon
+{
+    color: teal;
+    font-size: 4em;
+    text-align: center;
+}
+.info
+{
+    text-align: center;
+}
+.info h3
+{
+    color: teal;
+    font-size: 1.2em;
+    font-weight: 700;
+    margin: 10px;
+}
+/* Start Plans Page */
+.plans-page
+{
+    grid-template-columns: repeat(auto-fill, minmax(385px, 1fr));
+}
+@media (max-width: 767px) {
+    .plans-page 
+    {
+    grid-template-columns: minmax(250px, 1fr);
+    margin-left: 10px;
+    margin-right: 10px;
+    gap: 10px;
+    }
+}
+.plans-page .plan .top {
+    border: 3px solid white;
+    outline: 3px solid transparent;
+}
+.plans-page .plan.green .top {
+    outline-color: rgb(184, 230, 230);
+    background-color: rgb(184, 230, 230);
+}
+.plans-page .plan.blue .top {
+    outline-color: rgb(0, 128, 128);
+    background-color: rgb(0, 128, 128);
+}
+.plans-page .plan.orange .top {
+    outline-color: rgb(0, 48, 48);
+    background-color: rgb(0, 48, 48);
+}
+.plans-page .plan .price {
+    position: relative;
+    font-size: 40px;
+    width: fit-content;
+    margin: auto;
+}
+.plans-page .plan .price span {
+    position: absolute;
+    left: -20px;
+    top: 0;
+    font-size: 25px;
+}
+.plans-page .plan ul li {
+    padding: 15px 0;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    border-bottom: 1px solid #eee;
+}
+.plans-page .plan ul li .yes {
+    color: var(--green-color);
+}
+.plans-page .plan ul li i:not(.yes, .help) {
+    color: var(--red-color);
+}
+.plans-page .plan ul li i:first-child {
+    font-size: 18px;
+    margin-right: 5px;
+}
+.plans-page .plan ul li .help {
+    color: var(--grey-color);
+    margin-left: auto;
+    cursor: pointer;
+}
+  /* End Plans Page */
+.download{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+}
+.download .right img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+
+
+@media (max-width: 1023px)
+{
+    .download{
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+    .download .left{
+        margin-bottom: 25px;
+    }
+    .download .center{
+        margin-bottom: 25px;
+    }
+
+    header
+    {
+        padding: 12px 15px;
+    }
+    .navigation a
+    {
+        padding-left: 10px;
+    }
+    .main .social-icons a
+{
+    color: rgb(168, 215, 215);
+    font-size: 2.5em;
+    padding-right: 40px;
+}
+.content
+{
+    display: block;
+}
+.content .right
+{
+    width: 100%;
+    display:grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    margin-top: 10vh;
+}
+
+
+    .title
+    {
+        font-size: 1.8em;
+    }
+    section
+    {
+        padding: 80px 20px;
+    }
+    .main h2
+    {
+        font-size: 1em;
+    }
+    .main h2 span
+    {
+        text-shadow: 2px 2px white;
+
+    }
+    .main h3
+    {
+        font-size: 1.6em;
+    }
+    .content
+    {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+@media (max-width: 641px)
+{
+    body
+    {
+        font-size: 12px;
+    }
+    .main h2
+    {
+        font-size: 0.8em;
+    }
+    .main h3
+    {
+        font-size: 1.4em;
+    }
+}
+@media (max-width: 300px)
+{
+    body
+    {
+        font-size: 10px;
+    }
+}
