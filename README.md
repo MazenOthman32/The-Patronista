@@ -1,6 +1,6 @@
 <p align="center">
   <!-- Replace "screenshots/logo.jpg" with your actual logo or main image -->
-  <img src="screenshots/Desings/1.png" alt="The Patronist" />
+  <img src="screenshots/1.png" alt="The Patronist" />
 </p>
 
 ## Content
@@ -73,9 +73,9 @@ Enable users to access their designs from multiple devices.
 ## Screenshots
 
 <!-- Replace these with your actual screenshots -->
-![Screenshot 1](screenshots/Desings/2.png)
+![Screenshot 1](screenshots/2.png)
 ---
-![Screenshot 2](screenshots/Desings/3.png)
+![Screenshot 2](screenshots/3.png)
 
 ---
 
